@@ -1,0 +1,28 @@
+{
+    "name": "baihaobio_home",
+    "version": "0.0.1",
+    "description": "Baihaobio home sources",
+    "main": "index.js",
+    "scripts": {},
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/px-project/baihaobio_home.git"
+    },
+    "author": "honpery <honpery@gmail.com>",
+    "license": "Apache License 2.0",
+    "homepage": "https://github.com/px-project/baihaobio_home#readme",
+    "devDependencies": {
+        "@types/node": "^8.0.26",
+        "@types/webpack": "^3.0.10",
+        "ts-node": "^3.3.0",
+        "tslint": "^5.7.0",
+        "typescript": "^2.5.2"
+    },
+    "dependencies": {
+        "@types/react": "^16.0.5",
+        "@types/react-dom": "^15.5.4",
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1"
+    }
+}
