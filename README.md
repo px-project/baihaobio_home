@@ -12,6 +12,7 @@ baihaobio_com
 ### 进度
 
 - [ ] [首页](http://www.baihaobio.com)
+- [ ] [搜索结果](https://www.baihaobio.com/search/:key)
 - [ ] 关于百昊
     - [ ] [公司介绍](https://www.baihaobio.com/about)
     - [ ] [核心团队](https://www.baihaobio.com/team)

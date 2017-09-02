@@ -7,5 +7,6 @@ export * from './lab';
 export * from './mesaage';
 export * from './news';
 export * from './sales';
+export * from './search';
 export * from './services';
 export * from './team';
