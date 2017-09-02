@@ -7,7 +7,8 @@
     "rules": {
         "quotemark": ["single", "jsx-double"],
         "member-access": ["no-public"],
-        "interface-name": ["never-prefix"]
+        "interface-name": ["never-prefix"],
+        "object-literal-sort-keys": [false]
     },
     "rulesDirectory": []
 }
