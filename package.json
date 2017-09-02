@@ -3,7 +3,12 @@
     "version": "0.0.1",
     "description": "Baihaobio home sources",
     "main": "index.js",
-    "scripts": {},
+    "scripts": {
+        "dev": "NODE_ENV=dev ./node_modules/.bin/ts-node ./scripts/run server",
+        "bundle": "NODE_ENV=dev ./node_modules/.bin/ts-node ./scripts/run bundle",
+        "build": "NODE_ENV=prod ./node_modules/,bin/ts-node ./scripts/run build",
+        "deploy": "NODE_ENV=prod ./node_modules/.bin/ts-node ./scripts/run server"
+    },
     "private": true,
     "repository": {
         "type": "git",

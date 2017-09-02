@@ -6,6 +6,14 @@ baihaobio_com
     |- src              # 源码
         |- pages        # 页面
         |- components   # 组件
+        |- fetchs       # 与后端通信服务封装
+            |- apis     # 提供服务接口
+            |- common   # 通用封装（请求）
+            |- config   # 后端配置
+            |- types    # 后端数据类型系统
+        |- router.ts    # 路由配置
+        |- client.ts    # 客户端渲染入口
+        |- server.ts    # 服务端渲染入口
     |- scripts          # 项目脚本
 ```
 
