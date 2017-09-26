@@ -1,4 +1,3 @@
-
 interface RouteConfig {
     path?: string;
     name?: string;

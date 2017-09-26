@@ -1,7 +1,16 @@
 import { API, Params, Query } from './types';
 
+interface UrlOptions {
+
+}
+
 export class Url {
-    public static gen(api: API, params: Params, query: Query) {
+
+    constructor(private _options: UrlOptions) {
+
+    }
+
+    create(api: API, params: Params, query: Query) {
         return '';
     }
 }

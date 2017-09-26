@@ -10,7 +10,7 @@ const base: webpack.Configuration = {
 
 };
 
-export const client: webpack.Configuration = {
+const client: webpack.Configuration = {
     ...base,
 
     name: 'client',
@@ -18,10 +18,12 @@ export const client: webpack.Configuration = {
 
 };
 
-export const server: webpack.Configuration = {
+const server: webpack.Configuration = {
     ...base,
 
     name: 'server',
     target: 'node',
 
 };
+
+export default [client, server];

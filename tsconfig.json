@@ -6,6 +6,7 @@
         "typeRoots": [
             "node_modules/@types"
         ],
+        "experimentalDecorators": true,
         "noImplicitAny": false,
         "outDir": "dist"
     }

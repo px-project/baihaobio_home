@@ -14,3 +14,9 @@ export interface Body {
 export interface Header {
     [name: string]: any;
 }
+
+export type Method = 'GET' | 'POST';
+export const Methods: {[method in Method]: Method } = {
+    GET: 'GET',
+    POST: 'POST',
+};

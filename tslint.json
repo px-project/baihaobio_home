@@ -6,9 +6,17 @@
     "jsRules": {},
     "rules": {
         "quotemark": ["single", "jsx-double"],
+        "object-literal-sort-keys": false,
+        "arrow-parens": false,
+        "one-variable-per-declaration": false,
+        "curly": false,
+        "class-name": false,
+        "new-parens": false,
+        "forin": false,
+        "variable-name": ["allow-leading-underscore"],
+        "max-classes-per-file": false,
         "member-access": ["no-public"],
-        "interface-name": ["never-prefix"],
-        "object-literal-sort-keys": [false]
+        "interface-name": ["never-prefix"]
     },
     "rulesDirectory": []
 }

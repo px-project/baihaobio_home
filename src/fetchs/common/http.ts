@@ -1,4 +1,4 @@
-import { API, Body, Header, Params, Query } from './types';
+import { API, Body, Header, Params, Query, Method, Methods } from './types';
 import { Url } from './url';
 
 interface HttpOptions {
@@ -6,26 +6,32 @@ interface HttpOptions {
 }
 
 interface FetchOptions {
-
+    api: API;
+    params?: Params;
+    query?: Query;
+    body?: Body;
+    headers?: Headers;
 }
 
 export class Http<T> {
+    private _url: Url;
 
-    private options: HttpOptions;
-
-    constructor(options: HttpOptions) {
-        this.options = options;
+    constructor(private options: HttpOptions) {
+        this._url = new Url({});
     }
 
-    get(options: FetchOptions): Promise<T[]> {
-        return this.buildMethod('GET', options);
+    get<T>(options: FetchOptions) {
+        return this._buildMethod<T>(Methods.GET, options);
     }
 
-    post(options: FetchOptions): Promise<T> {
-        return this.buildMethod('GET', options);
+    post<T>(options: FetchOptions) {
+        return this._buildMethod<T>(Methods.POST, options);
     }
 
-    private buildMethod(method: 'GET' | 'POST', options: FetchOptions) {
-        return new Promise({});
+    private _buildMethod<T>(method: Method, options: FetchOptions) {
+        const { api, params, query, body } = options;
+        const url = this._url.create(api, params, query);
+
+        return new Promise();
     }
 }

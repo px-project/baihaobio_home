@@ -1,4 +1,4 @@
-## baihaobio_home
+## baihaobio_home [![Build Status](https://travis-ci.org/px-project/baihaobio_home.svg?branch=master)](https://travis-ci.org/px-project/baihaobio_home)
 
 ### 起步
 
