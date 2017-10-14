@@ -4,11 +4,12 @@
     "description": "Baihaobio home sources",
     "main": "index.js",
     "scripts": {
-        "dev": "NODE_ENV=dev ./node_modules/.bin/ts-node ./scripts/run server",
-        "bundle": "NODE_ENV=dev ./node_modules/.bin/ts-node ./scripts/run bundle",
+        "ncu": "ncu -au && yarn",
+        "dev": "NODE_ENV=dev ts-node ./scripts/run server",
+        "bundle": "NODE_ENV=dev ts-node ./scripts/run bundle",
         "build": "NODE_ENV=prod ./node_modules/,bin/ts-node ./scripts/run build",
-        "deploy": "NODE_ENV=prod ./node_modules/.bin/ts-node ./scripts/run server",
-        "test": "./node_modules/.bin/mocha -r ./node_modules/ts-node/register ./test/**/*.ts"
+        "deploy": "NODE_ENV=prod ts-node ./scripts/run server",
+        "test": "mocha -r ./node_modules/ts-node/register ./test/**/*.ts"
     },
     "private": true,
     "repository": {
@@ -20,19 +21,32 @@
     "homepage": "https://github.com/px-project/baihaobio_home#readme",
     "devDependencies": {
         "@types/chai": "^4.0.4",
+        "@types/koa": "^2.0.39",
+        "@types/koa-bodyparser": "^3.0.25",
+        "@types/koa-router": "^7.0.23",
         "@types/mocha": "^2.2.43",
-        "@types/node": "^8.0.26",
-        "@types/webpack": "^3.0.10",
+        "@types/node": "^8.0.34",
+        "@types/webpack": "^3.0.13",
+        "@types/webpack-env": "^1.13.2",
         "chai": "^4.1.2",
-        "mocha": "^3.5.3",
+        "extract-text-webpack-plugin": "^3.0.1",
+        "mocha": "^4.0.1",
+        "npm-check-updates": "^2.13.0",
         "ts-node": "^3.3.0",
         "tslint": "^5.7.0",
-        "typescript": "^2.5.2"
+        "typescript": "^2.5.3",
+        "webpack-dev-server": "^2.9.1",
+        "webpack-node-externals": "^1.6.0"
     },
     "dependencies": {
-        "@types/react": "^16.0.5",
-        "@types/react-dom": "^15.5.4",
-        "react": "^15.6.1",
-        "react-dom": "^15.6.1"
+        "@types/react": "^16.0.10",
+        "@types/react-dom": "^16.0.1",
+        "koa": "^2.3.0",
+        "koa-bodyparser": "^4.2.0",
+        "koa-router": "^7.2.1",
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0",
+        "webpack-dev-middleware": "^1.12.0",
+        "webpack-hot-middleware": "^2.19.1"
     }
 }

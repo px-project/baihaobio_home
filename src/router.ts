@@ -1,11 +1,11 @@
-interface RouteConfig {
+interface IRouteConfig {
     path?: string;
     name?: string;
     title?: string;
-    children?: RouteConfig[];
+    children?: IRouteConfig[];
 }
 
-export const config: RouteConfig[] = [
+export const RouterConfig: IRouteConfig[] = [
     {
         path: '',
         name: 'home',

@@ -2,12 +2,18 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "jsx": "preserve",
+        "lib": [
+            "esnext",
+            "dom"
+        ],
         "typeRoots": [
             "node_modules/@types"
         ],
         "experimentalDecorators": true,
-        "noImplicitAny": false,
+        "jsx": "react",
         "outDir": "dist"
-    }
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }

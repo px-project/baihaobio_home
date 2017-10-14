@@ -1,29 +1,93 @@
-import * as path from 'path';
+import * as extractTextPlugin from 'extract-text-webpack-plugin';
 import * as webpack from 'webpack';
+import { Env, Path } from './src/helper';
 
-function Root(...paths: string[]) {
-    return path.join(__dirname, ...paths);
-}
+const Base: webpack.Configuration = {
+    context: Path.root(),
 
-const base: webpack.Configuration = {
-    context: '.',
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js', '.jsx'],
+        modules: ['node_modules', 'src'],
+    },
 
+    module: {
+        rules: [
+            {
+                test: /.tsx?$/,
+                use: ['awesome-typescript-loader'],
+            },
+            {
+                test: /.scss$/,
+                use: extractTextPlugin.extract({
+                    fallback: [
+                        {
+                            loader: 'style-loader',
+                        },
+                    ],
+                    use: [
+                        {
+                            loader: 'css-loader',
+                        },
+                        {
+                            loader: 'sass-loader',
+                        },
+                    ],
+                }),
+            },
+        ],
+    },
+
+    devtool: Env.isDev ? 'cheap-module-source-map' : 'source-map',
+
+    plugins: [
+        new extractTextPlugin('style.css'),
+    ],
 };
 
-const client: webpack.Configuration = {
-    ...base,
+export const Client: webpack.Configuration = {
+    ...Base,
 
-    name: 'client',
     target: 'web',
+    name: 'client',
 
+    entry: {
+        client: Path.root('src', 'client'),
+    },
+
+    output: {
+        path: Path.root('build', 'public', 'assets'),
+        publicPath: '/assets/',
+        filename: Env.isDev ? '[name].js' : '[name].[hash:8].js',
+        chunkFilename: Env.isDev ? '[name].chunk.js' : '[name].[chunkhash:8].chunk.js',
+    },
+
+    plugins: [
+        ...Base.plugins,
+
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
+    ],
 };
 
-const server: webpack.Configuration = {
-    ...base,
+export const Server: webpack.Configuration = {
+    ...Base,
 
-    name: 'server',
     target: 'node',
+    name: 'server',
 
+    entry: {
+        server: Path.root('src', 'server'),
+    },
+
+    output: {
+        path: Path.root('build'),
+        filename: '[name].js',
+        chunkFilename: 'chunks/[name].js',
+        libraryTarget: 'commonjs2',
+        publicPath: '/assets/',
+    },
+
+    externals: /^[a-z\-0-9]+$/,
 };
 
-export default [client, server];
+export default [Client, Server];
